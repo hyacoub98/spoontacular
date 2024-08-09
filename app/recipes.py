@@ -4,7 +4,7 @@
 
 import json
 from pprint import pprint
-from statistics import mean
+from IPython.display import Image, display
 
 # packages (require installation)
 import requests
@@ -16,16 +16,37 @@ from dotenv import load_dotenv
 
 load_dotenv() # look in the .env file for env variables
 
-API_KEY = os.getenv("SPOONACULAR", default="demo")
+SPOONACULAR = os.getenv("SPOONACULAR", default="demo")
 
 # RECIPE REPORT
 
-recipe_url = f"https://api.spoonacular.com/recipes/716429/information?apiKey={SPOONACULAR}"
 
-response = requests.get(recipe_url)
+# Create Criteria to Piece Together URL
 
-recipes = json.loads(response.text)
-# print(type(recipes))
-# pprint(recipes)
-# print(recipes.keys())
+def get_recipes(cuisine_type, diet_type, meal_type, intolerances):
+    recipe_url = f"https://api.spoonacular.com/food/search?apiKey={SPOONACULAR}&query={cuisine_type}&{diet_type}&{intolerances}&{meal_type}&number=10&addRecipeNutrition=True&addRecipeInstructions=True"
+    response = requests.get(recipe_url)
+    # print(recipe_url)
+    recipes = json.loads(response.text)
+    
+
+
+    results = []
+
+    for recipe in recipes["searchResults"]:
+        results.append(recipe["results"])
+
+    # print(results)
+
+
+    for result in results[0]:
+        print('-------')
+        display(Image(url=result['image'],height=100))
+        print(result["name"])
+        print(result["link"])
+
+    return
+         
+
+get_recipes("Middle Eastern", "Vegan", "main course", "soy")
 
