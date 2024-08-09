@@ -48,5 +48,10 @@ def get_recipes(cuisine_type, diet_type, meal_type, intolerances):
     return
          
 
-get_recipes("Middle Eastern", "Vegan", "main course", "soy")
+cuisine = input("Please select a cuisine (e.g. 'Middle Eastern'):")
+diet = input("Please select a specific diet (e.g. 'Vegan'):")
+meal = input("Please select a meal type (e.g. 'Appetizer'):")
+intolerance = input("Please select an intolerance (e.g. 'Soy'):")
+
+get_recipes(cuisine, diet, meal, intolerance)
 
