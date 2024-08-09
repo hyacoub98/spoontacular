@@ -20,3 +20,12 @@ API_KEY = os.getenv("SPOONACULAR", default="demo")
 
 # RECIPE REPORT
 
+recipe_url = f"https://api.spoonacular.com/recipes/716429/information?apiKey={SPOONACULAR}"
+
+response = requests.get(recipe_url)
+
+recipes = json.loads(response.text)
+# print(type(recipes))
+# pprint(recipes)
+# print(recipes.keys())
+
