@@ -1,0 +1,99 @@
+
+
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <h2>Recipe Report</h2>
+
+    <p>Please input your recipe criteria below:</p>
+
+    <form action="/recipe/list" method="POST">
+
+        <label>Cuisine:</label>
+        <select name="cuisine_type">
+            <option value="African">African</option>
+            <option value="Asian">Asian</option>
+            <option value="American">American</option>
+            <option value="British">British</option>
+            <option value="Cajun">Cajun</option>
+            <option value="Caribbean">Caribbean</option>
+            <option value="Chinese">Chinese</option>
+            <option value="Eastern European">Eastern European</option>
+            <option value="French">French</option>
+            <option value="German">German</option>
+            <option value="Greek">Greek</option>
+            <option value="Indian">Indian</option>
+            <option value="Irish">Irish</option>
+            <option value="Italian">Italian</option>
+            <option value="Japanese">Japanese</option>
+            <option value="Jewish">Jewish</option>
+            <option value="Korean">Korean</option>
+            <option value="Latin American">Latin American</option>
+            <option value="Mediterranean">Mediterranean</option>
+            <option value="Mexican">Mexican</option>
+            <option value="Middle Eastern">Middle Eastern</option>
+            <option value="Nordic">Nordic</option>
+            <option value="Southern">Southern</option>
+            <option value="Spanish">Spanish</option>
+            <option value="Thai">Thai</option>
+            <option value="Vietnamese">Vietnamese</option>
+        </select>
+        <br>
+
+        <label>Diet:</label>
+        <select name="diet_type">
+            <option value="Gluten Free">Gluten Free</option>
+            <option value="Ketogenic">Ketogenic</option>
+            <option value="Vegetarian">Vegetarian</option>
+            <option value="Lacto-Vegetarian">Lacto-Vegetarian</option>
+            <option value="Ovo-Vegetarian">Ovo-Vegetarian</option>
+            <option value="Vegan">Vegan</option>
+            <option value="Pescetarian">Pescetarian</option>
+            <option value="Paleo">Paleo</option>
+            <option value="Primal">Primal</option>
+            <option value="Low FODMAP">Low FODMAP</option>
+            <option value="Whole30">Whole30</option>
+        </select>
+        <br>
+
+        <label>Meal:</label>
+        <select name="meal_type">
+            <option value="main course">Main Course</option>
+            <option value="side dish">Side Dish</option>
+            <option value="dessert">Dessert</option>
+            <option value="Appetizer">Appetizer</option>
+            <option value="salad">Salad</option>
+            <option value="bread">Bread</option>
+            <option value="breakfast">Breakfast</option>
+            <option value="soup">Soup</option>
+            <option value="Beverage">Beverage</option>
+            <option value="Sauce">Sauce</option>
+            <option value="marinade">Marinade</option>
+            <option value="fingerfood">Fingerfood</option>
+            <option value="snack">Snack</option>
+            <option value="drink">Drink</option>
+        </select>
+        <br>
+
+        <label>Intolerance:</label>
+        <select name="intolerances">
+            <option value="Dairy">Dairy</option>
+            <option value="Egg">Egg</option>
+            <option value="Gluten">Gluten</option>
+            <option value="Grain">Grain</option>
+            <option value="Peanut">Peanut</option>
+            <option value="Seafood">Seafood</option>
+            <option value="Sesame">Sesame</option>
+            <option value="Shellfish">Shellfish</option>
+            <option value="Soy">Soy</option>
+            <option value="Sulfite">Sulfite</option>
+            <option value="Tree Nut">Tree Nut</option>
+            <option value="Wheat">Wheat</option>
+        </select>
+        <br>
+
+        <button class="btn btn-success">Submit</button>
+    </form>
+
+{% endblock %}
