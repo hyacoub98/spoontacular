@@ -1,6 +1,6 @@
 
 {% extends "bootstrap_5_layout.html" %}
-{% set active_page = "recipes" %}
+{% set active_page = "recipe_cards" %}
 
 {% block content %}
 
@@ -16,6 +16,9 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ recipe.name }}</h5>
                         <p class="card-text">{{ recipe.link }}</p>
+
+                        <button class="btn btn-primary">Navigate to The Recipe Now!</button>
+
                     </div>
                 </div>
             </div>

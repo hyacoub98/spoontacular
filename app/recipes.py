@@ -59,25 +59,8 @@ if __name__ == "__main__":
 
     recipes = get_recipes(cuisine, diet, meal, intolerance)
 
-    first_recipe = [recipes[0]["image"],recipes[0]["name"],recipes[0]["link"]]
-    second_recipe = [recipes[1]["image"],recipes[1]["name"],recipes[1]["link"]]
-    third_recipe = [recipes[2]["image"],recipes[2]["name"],recipes[2]["link"]]
-    fourth_recipe = [recipes[3]["image"],recipes[3]["name"],recipes[3]["link"]]
-    fifth_recipe = [recipes[4]["image"],recipes[4]["name"],recipes[4]["link"]]
-    sixth_recipe = [recipes[5]["image"],recipes[5]["name"],recipes[5]["link"]]
-    seventh_recipe = [recipes[6]["image"],recipes[6]["name"],recipes[6]["link"]]
-    eighth_recipe = [recipes[7]["image"],recipes[7]["name"],recipes[7]["link"]]
-    nineth_recipe = [recipes[8]["image"],recipes[8]["name"],recipes[8]["link"]]
-    tenth_recipe = [recipes[9]["image"],recipes[9]["name"],recipes[9]["link"]]
-
-    print(first_recipe)
-    print(second_recipe)
-    print(third_recipe)
-    print(fourth_recipe)
-    print(fifth_recipe)
-    print(sixth_recipe)
-    print(seventh_recipe)
-    print(eighth_recipe)
-    print(nineth_recipe)
-    print(tenth_recipe)
-
+    for recipe in recipes:
+        print('-------')
+        display(Image(url=recipe['image'],height=100))
+        print(recipe["name"])
+        print(recipe["link"])
