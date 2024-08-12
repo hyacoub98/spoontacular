@@ -7,13 +7,13 @@ from app.recipes import get_recipes
 
 recipe_routes = Blueprint("recipe_routes", __name__)
 
-@recipe_routes.route("/recipes/home")
+@recipe_routes.route("/")
+@recipe_routes.route("/home")
 def recipe_home():
     print("WELCOME, PLEASE SELECT YOUR RECIPE CRITERIA...")
-    recipe_home = get_recipes()
-    return render_template("recipe_home.html", recipe_home=recipe_home)
+    return render_template("recipe_home.html")
 
-@recipe_routes.route("/recipes/cards", methods=["GET", "POST"])
+@recipe_routes.route("/cards", methods=["GET", "POST"])
 def recipes():
     print("HERE ARE THE RECIPES FROM YOUR SEARCH...")
 
@@ -47,7 +47,7 @@ def recipes():
     except Exception as err:
         print('OOPS', err)
 
-        return redirect("/recipes/home")
+        return redirect("/")
 
 
 
