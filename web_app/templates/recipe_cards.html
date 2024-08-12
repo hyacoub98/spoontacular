@@ -1,0 +1,25 @@
+
+{% extends "bootstrap_5_layout.html" %}
+{% set active_page = "recipes" %}
+
+{% block content %}
+
+    <h1>Your Recipes</h1>
+
+    <p class="lead">Here are your requested recipes!</p>
+
+    <div class="row">
+        {% for recipe in recipes %}
+            <div class="col">
+                <div class="card" style="width: 18rem; margin-bottom: 20px;">
+                    <img class="card-img-top" src="{{ recipe.image }}" alt="an image of '{{ recipe.name }}'">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ recipe.name }}</h5>
+                        <p class="card-text">{{ recipe.link }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}
