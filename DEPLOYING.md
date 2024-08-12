@@ -20,7 +20,7 @@ gunicorn "web_app:create_app()"
 
 Choose instance type of "free".
 
-Under the "Advanced" options, set an environment variable called `ALPHAVANTAGE_API_KEY` (specifying your own API Key value, without quotes).
+Under the "Advanced" options, set an environment variable called `SPOONACULAR` (specifying your own API Key value, without quotes).
 
 Finally, click to "Create" the web service.
 
