@@ -47,7 +47,7 @@ def recipes():
     except Exception as err:
         print('OOPS', err)
 
-        return redirect("/")
+        return redirect("/home")
 
 
 
