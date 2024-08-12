@@ -26,20 +26,25 @@ SPOONACULAR = os.getenv("SPOONACULAR", default="demo")
 
 
 def get_recipes(cuisine_type, diet_type, meal_type, intolerances):
-    recipe_url = f"https://api.spoonacular.com/food/search?apiKey={SPOONACULAR}&query={cuisine_type}&{diet_type}&{intolerances}&{meal_type}&number=10&addRecipeNutrition=True&addRecipeInstructions=True"
-    response = requests.get(recipe_url)
-    # print(recipe_url)
-    recipes = json.loads(response.text)
+    original_url = f"https://api.spoonacular.com/recipes/complexSearch?apiKey={SPOONACULAR}&cuisine={cuisine_type}&diet={diet_type}&intolerances={intolerances}&type={meal_type}&number=10&addRecipeInstructions=True&instructionsRequired=True"
 
 
-    results = []
+    response = requests.get(original_url)
 
-    for recipe in recipes["searchResults"]:
-        results.append(recipe["results"])
+    recipes_orig = json.loads(response.text)
 
-    # print(results)
+    id_values = []
+    for recipe in recipes_orig["results"]:
+        id_values.append(recipe["id"])
+        
+    id = str(id_values)[1:-1]
 
-    return results[0]
+    recipe_url = f"https://api.spoonacular.com/recipes/informationBulk?apiKey={SPOONACULAR}&ids={id}"
+    recipe_response = requests.get(recipe_url)
+
+    recipes = json.loads(recipe_response.text)
+
+    return recipes
          
 
 
@@ -59,8 +64,8 @@ if __name__ == "__main__":
 
     recipes = get_recipes(cuisine, diet, meal, intolerance)
 
-    for recipe in recipes:
+    for info in recipes:
         print('-------')
-        display(Image(url=recipe['image'],height=100))
-        print(recipe["name"])
-        print(recipe["link"])
+        display(Image(url=info['image'],height=100))
+        print(info["title"])
+        print(info["spoonacularSourceUrl"])

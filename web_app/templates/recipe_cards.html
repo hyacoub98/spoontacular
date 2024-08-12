@@ -12,13 +12,13 @@
         {% for recipe in recipes %}
             <div class="col">
                 <div class="card" style="width: 18rem; margin-bottom: 20px;">
-                    <img class="card-img-top" src="{{ recipe.image }}" alt="an image of '{{ recipe.name }}'">
+                    <img class="card-img-top" src="{{ recipe.image }}" alt="an image of '{{ recipe.title }}'">
                     <div class="card-body">
-                        <h5 class="card-title">{{ recipe.name }}</h5>
+                        <h5 class="card-title">{{ recipe.title }}</h5>
                         <!-- <p class="card-text"></p> -->
 
-                        <a href="{{ recipe.link }}">
-                        <button class="btn btn-primary">Navigate to The Recipe Now!</button>
+                        <a href="{{ recipe.spoonacularSourceUrl }}">
+                        <button class="btn btn-primary">Follow for Recipe Link</button>
                         </a>
 
                     </div>
