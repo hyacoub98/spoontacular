@@ -15,9 +15,11 @@
                     <img class="card-img-top" src="{{ recipe.image }}" alt="an image of '{{ recipe.name }}'">
                     <div class="card-body">
                         <h5 class="card-title">{{ recipe.name }}</h5>
-                        <p class="card-text">{{ recipe.link }}</p>
+                        <!-- <p class="card-text"></p> -->
 
+                        <a href="{{ recipe.link }}">
                         <button class="btn btn-primary">Navigate to The Recipe Now!</button>
+                        </a>
 
                     </div>
                 </div>
